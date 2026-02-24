@@ -1,0 +1,22 @@
+/* جسر بين الأسماء القديمة في base.css والمتغيرات التي تستخدمها السكشنات الجديدة */
+
+:root {
+    /* الخلفيات */
+    --page-bg:         var(--bg);
+    --page-bg-soft:    var(--bg-alt);
+    --section-bg:      var(--bg-elevated);
+    --section-bg-soft: var(--bg-alt);
+
+    /* النصوص */
+    --text-main:       var(--text);
+    --text-muted:      var(--text-soft);
+
+    /* لهجات الأقسام */
+    --accent-occasion:    var(--gold);
+    --accent-collections: #22c55e;
+    --accent-premium:     #facc15;
+    --accent-custom:      #3b82f6;
+}
+
+/* ما نلمس body هنا نهائيًا، ولا نعيد تعريف الثيم الداكن */
+/* الداكن كله يتحكم به [data-theme="dark"] في base.css */

@@ -1,0 +1,65 @@
+# =========================================================
+# .htaccess - متجر من أجلك للهدايا
+# توجيه الروابط + الأمان + الأداء
+# =========================================================
+
+Options -Indexes
+RewriteEngine On
+RewriteBase /For%20You/
+# (If on localhost/For You/, RewriteBase might need adjustment. 
+# Usually simply RewriteBase / works if root, or auto-detection.)
+
+# =========================================================
+# 1. 🔄 توجيه Assets القديمة إلى الهيكل الجديد (Public)
+# =========================================================
+
+# تحويل assets/img -> public/images
+RewriteRule ^assets/img/(.*)$ public/images/$1 [L,NC,R=301]
+RewriteRule ^assets/images/(.*)$ public/images/$1 [L,NC,R=301]
+
+# تحويل assets/css -> public/css
+RewriteRule ^assets/css/(.*)$ public/css/$1 [L,NC]
+
+# تحويل assets/js -> public/js
+RewriteRule ^assets/js/(.*)$ public/js/$1 [L,NC]
+
+# تحويل أي شيء آخر في assets -> public
+RewriteRule ^assets/(.*)$ public/$1 [L,NC]
+
+# =========================================================
+# 2. 🚦 توجيه الصفحات إلى Router (index.php)
+# =========================================================
+
+# استثناء الملفات والمجلدات الحقيقية (مثل public/, admin/, uploads/)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# =========================================================
+# 3. 🛡️ الأمان
+# =========================================================
+<FilesMatch "^(\.htaccess|\.htpasswd|\.git|config\.php|database\.php|site\.php)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# منع الوصول المباشر للمجلدات الداخلية
+RewriteRule ^app/ - [F,L]
+RewriteRule ^templates/ - [F,L]
+RewriteRule ^pages/ - [F,L]
+
+# =========================================================
+# 4. 🚀 الأداء (GZIP & Caching)
+# =========================================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css float/javascript application/javascript application/json
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+</IfModule>

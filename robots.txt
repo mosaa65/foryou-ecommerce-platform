@@ -1,0 +1,27 @@
+# robots.txt - متجر من أجلك للهدايا
+User-agent: *
+Allow: /
+
+# Directories to ignore
+Disallow: /admin/
+Disallow: /app/
+Disallow: /config/
+Disallow: /includes/
+Disallow: /templates/
+Disallow: /uploads/
+Disallow: /sql/
+
+# Allow Public Assets
+Allow: /public/
+Allow: /assets/ # Blocked by rewritten rule anyway, but good for bots to know if they try
+
+# Specific Files
+Disallow: /*.sql$
+Disallow: /*.log$
+Disallow: /composer.json
+Disallow: /composer.lock
+Disallow: /package.json
+Disallow: /README.md
+
+# Sitemap
+Sitemap: http://touchyflower.free.nf/sitemap.xml

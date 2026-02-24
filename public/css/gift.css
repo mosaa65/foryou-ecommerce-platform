@@ -1,0 +1,526 @@
+/* ============================================
+   🎁 Gift Details Page - من أجلك للهدايا
+   ============================================ */
+
+/* ---------- Hero ---------- */
+
+.gift-hero {
+    padding: 100px 0 60px;
+    background: radial-gradient(circle at top right,
+        rgba(214, 180, 108, 0.15) 0%,
+        transparent 45%),
+        linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.gift-hero::before {
+    content: "";
+    position: absolute;
+    inset-inline-end: -120px;
+    top: -140px;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+        rgba(255, 0, 0, 0.1) 0%,
+        transparent 70%);
+    pointer-events: none;
+}
+
+.gift-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.gift-hero-breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    margin-bottom: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+}
+
+.gift-hero-breadcrumb a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.gift-hero-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.gift-hero-breadcrumb span {
+    opacity: 0.7;
+}
+
+.gift-hero-label {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #b10f2e; /* أحمر هادئ */
+    background: rgba(177, 15, 46, 0.06);
+    border: 1px solid rgba(177, 15, 46, 0.18);
+    margin-bottom: 16px;
+}
+
+.gift-hero-title {
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 14px;
+}
+
+.gift-hero-subtitle {
+    font-size: 1rem;
+    color: var(--text-soft);
+    line-height: 1.9;
+    max-width: 720px;
+}
+
+.gift-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-top: 24px;
+    font-size: 0.92rem;
+    color: var(--text-soft);
+}
+
+.gift-hero-meta strong {
+    color: var(--text);
+    font-weight: 700;
+}
+
+.gift-hero-actions {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.gift-hero-whatsapp,
+.gift-hero-back {
+    border-radius: 999px;
+    padding: 11px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gift-hero-whatsapp {
+    background: #b10f2e; /* أحمر رئيسي */
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(177, 15, 46, 0.4);
+    border: 1px solid #b10f2e;
+}
+
+.gift-hero-whatsapp:hover {
+    background: #8f0c25;
+    border-color: #8f0c25;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(177, 15, 46, 0.55);
+}
+
+.gift-hero-back {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border-soft);
+}
+
+.gift-hero-back:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(214, 180, 108, 0.06);
+}
+
+/* ---------- Not Found ---------- */
+
+.gift-not-found {
+    padding: 120px 0;
+    background: var(--bg);
+}
+
+.gift-not-found-inner {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-xl);
+    padding: 40px 28px;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
+}
+
+.gift-not-found-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text);
+}
+
+.gift-not-found-text {
+    font-size: 0.96rem;
+    color: var(--text-soft);
+    margin-bottom: 24px;
+}
+
+.gift-back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: #b10f2e;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(177, 15, 46, 0.35);
+    transition: all 0.3s ease;
+}
+
+.gift-back-btn:hover {
+    background: #8f0c25;
+    transform: translateY(-2px);
+}
+
+/* ---------- Gallery ---------- */
+
+.gift-gallery {
+    padding: 70px 0;
+    background: var(--bg);
+}
+
+.gift-gallery-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
+    gap: 26px;
+    align-items: flex-start;
+}
+
+.gift-gallery-main {
+    background: var(--bg-elevated);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
+    padding: 14px;
+}
+
+.gift-main-image {
+    width: 100%;
+    border-radius: calc(var(--radius-xl) - 8px);
+    object-fit: cover;
+    max-height: 540px;
+    display: block;
+}
+
+.gift-main-placeholder {
+    width: 100%;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: calc(var(--radius-xl) - 6px);
+    background: var(--bg-alt);
+    color: var(--text-soft);
+    font-size: 0.95rem;
+}
+
+.gift-thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.gift-thumb {
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    padding: 2px;
+    background: var(--bg-elevated);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    max-width: 120px;
+    flex: 0 0 auto;
+}
+
+.gift-thumb img {
+    display: block;
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: calc(var(--radius-md) - 2px);
+}
+
+.gift-thumb:hover {
+    border-color: rgba(177, 15, 46, 0.6);
+    transform: translateY(-2px);
+}
+
+.gift-thumb.active {
+    border-color: #b10f2e;
+    box-shadow: 0 6px 14px rgba(177, 15, 46, 0.4);
+}
+
+/* ---------- Details ---------- */
+
+.gift-details {
+    padding: 40px 0 70px;
+    background: var(--bg);
+}
+
+.gift-details-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.gift-details-text {
+    font-size: 0.98rem;
+    color: var(--text-soft);
+    margin-bottom: 16px;
+}
+
+.gift-details-list {
+    margin: 0;
+    padding-inline-start: 1.2rem;
+    list-style: disc;
+    color: var(--text-soft);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.gift-details-list li {
+    margin-bottom: 6px;
+}
+
+.gift-details-cta {
+    margin-top: 22px;
+}
+
+/* ---------- Related gifts ---------- */
+
+.gift-related {
+    padding: 50px 0 90px;
+    background: var(--bg-alt);
+}
+
+.gift-related-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 24px;
+}
+
+.gift-related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.gift-related-card {
+    background: var(--bg-elevated);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-soft);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
+}
+
+.gift-related-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--gold);
+}
+
+.gift-related-img-wrapper {
+    height: 190px;
+    overflow: hidden;
+    background: var(--bg-alt);
+}
+
+.gift-related-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gift-related-card:hover .gift-related-img-wrapper img {
+    transform: scale(1.07);
+}
+
+.gift-related-content {
+    padding: 16px 18px 18px;
+}
+
+.gift-related-cat {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: #b10f2e;
+    background: rgba(177, 15, 46, 0.06);
+    border-radius: 999px;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+}
+
+.gift-related-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.gift-related-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--gold);
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.gift-related-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.gift-related-link:hover::after {
+    width: 100%;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 992px) {
+    .gift-gallery-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .gift-thumbs {
+        margin-top: 12px;
+    }
+
+    .gift-hero-inner {
+        text-align: start;
+    }
+}
+
+@media (max-width: 768px) {
+    .gift-hero {
+        padding: 80px 0 50px;
+    }
+
+    .gift-hero-title {
+        font-size: 1.9rem;
+    }
+
+    .gift-hero-subtitle {
+        font-size: 0.96rem;
+    }
+
+    .gift-hero-meta {
+        gap: 8px 16px;
+    }
+
+    .gift-hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .gift-hero-whatsapp,
+    .gift-hero-back {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .gift-main-image {
+        max-height: 420px;
+    }
+}
+
+@media (max-width: 576px) {
+    .gift-hero {
+        padding: 70px 0 40px;
+    }
+
+    .gift-hero-title {
+        font-size: 1.6rem;
+    }
+
+    .gift-gallery {
+        padding: 50px 0;
+    }
+
+    .gift-main-image {
+        max-height: 360px;
+    }
+
+    .gift-related-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .gift-not-found-inner {
+        padding: 32px 18px;
+    }
+}
+
+@media (max-width: 400px) {
+    .gift-hero-title {
+        font-size: 1.45rem;
+    }
+
+    .gift-main-image {
+        max-height: 310px;
+    }
+
+    .gift-hero-label {
+        font-size: 0.8rem;
+        padding: 5px 12px;
+    }
+}
+/* === Force horizontal scroll for Related Gifts on mobile === */
+@media (max-width: 768px) {
+  .gift-related-grid {
+    display: flex !important;
+    flex-wrap: nowrap !important;        /* صف أفقي واحد */
+    overflow-x: auto !important;         /* تمكين السحب */
+    -webkit-overflow-scrolling: touch;   /* سلاسة على iOS */
+    gap: 16px !important;                /* مسافة بين البطاقات */
+    padding: 0 12px !important;
+    scroll-snap-type: x mandatory;       /* لضمان alignment عند السحب */
+  }
+
+  .gift-related-card {
+    flex: 0 0 75%;       /* كل بطاقة تأخذ 75% من عرض الشاشة */
+    max-width: 75%;
+    scroll-snap-align: start;  /* كل بطاقة تبدأ عند السحب */
+    margin: 0 !important;
+  }
+
+  /* إخفاء شريط التمرير بشكل أنيق */
+  .gift-related-grid::-webkit-scrollbar { display: none; }
+  .gift-related-grid { -ms-overflow-style: none; scrollbar-width: none; }
+}

@@ -1,0 +1,271 @@
+/* سكشن خدمات التخصيص – جو ورشة حِرفة أنيقة */
+
+.custom-section {
+    padding: 42px 0 36px;
+    direction: rtl;
+    text-align: right;
+}
+
+/* خلفية خفيفة كأنها لوح عمل */
+.custom-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, rgba(15, 23, 42, 0.65) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.65) 1px, transparent 1px);
+    background-size: 38px 38px;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.custom-section::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.35), transparent);
+    top: -60px;
+    left: -20px;
+    opacity: 0.75;
+    pointer-events: none;
+}
+
+.custom-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 18px;
+}
+
+/* العنوان */
+.custom-header {
+    margin-bottom: 20px;
+}
+/* ==============================================
+   تحسين العنوان والنص – خدمات التخصيص
+================================================= */
+
+.custom-title,
+.custom-subtitle {
+    font-weight: 700;
+    background: linear-gradient(90deg, #6cbece, #e86a8c); /* تدرج أزرق جذاب */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2); /* وهج خفيف للنص */
+}
+
+/* تعديل حجم النصوص */
+.custom-title {
+    font-size: 32px;
+    margin: 0 0 8px;
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.custom-subtitle {
+    font-size: 14px;
+    max-width: 600px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+
+
+/* شبكة الكروت */
+.custom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+/* الكرت (البطاقة المعلقة) */
+.custom-card {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+
+    transform: translateY(18px) scale(0.98);
+    opacity: 0;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* تظهر من JS */
+.custom-card.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* الدبوس أعلى البطاقة */
+.custom-card-pin {
+    position: absolute;
+    top: -6px;
+    inset-inline-start: 22px;
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: radial-gradient(circle, #e5e7eb, #9ca3af);
+    box-shadow:
+        0 0 0 2px rgba(15, 23, 42, 0.9),
+        0 4px 8px rgba(15, 23, 42, 0.9);
+    z-index: 2;
+}
+
+/* جسم البطاقة */
+.custom-card-inner {
+    position: relative;
+    border-radius: 18px;
+    background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.96)),
+        radial-gradient(circle at top, rgba(59, 130, 246, 0.18), transparent);
+    border: 1px solid rgba(148, 163, 184, 0.55);
+    box-shadow:
+        0 16px 40px rgba(15, 23, 42, 0.95),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+    padding: 10px 12px;
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+
+    /* ثقب صغير أعلى البطاقة */
+    background-clip: padding-box;
+}
+
+.custom-card-inner::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    inset-inline-start: 20px;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(15, 23, 42, 0.9);
+    box-shadow: inset 0 0 0 1px rgba(30, 64, 175, 0.9);
+    background: radial-gradient(circle, #020617, #020617);
+}
+
+/* العمود الأيسر (النص) */
+.custom-card-left {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* لابل الخدمة */
+.custom-card-label {
+    margin-bottom: 6px;
+}
+
+.custom-card-label-main {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(59, 130, 246, 0.8);
+    color: #e0f2fe;
+}
+
+.custom-card-label-note {
+    display: block;
+    margin-top: 3px;
+    font-size: 11px;
+    color: rgba(191, 219, 254, 0.95);
+}
+
+/* النص */
+.custom-card-text {
+    font-size: 11px;
+    margin: 0 0 6px;
+    color: rgba(209, 213, 219, 0.95);
+}
+
+/* الفوتر */
+.custom-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom-card-cta {
+    font-size: 11px;
+    font-weight: 500;
+    color: #bfdbfe;
+}
+
+.custom-card-dash {
+    flex: 0 0 48px;
+    height: 1px;
+    border-radius: 999px;
+    background-image: linear-gradient(to left, #fdf993 40%, transparent 40%);
+    background-size: 6px 1px;
+    background-repeat: repeat-x;
+}
+
+/* العمود الأيمن (الصورة) */
+.custom-card-right {
+    flex: 0 0 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-card-image-frame {
+    width: 86px;
+    height: 86px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px dashed rgba(148, 163, 184, 0.8);
+    background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617);
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.9);
+}
+
+.custom-card-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+/* هوفر */
+.custom-card:hover .custom-card-inner {
+    border-color: rgba(59, 130, 246, 0.9);
+    box-shadow:
+        0 20px 52px rgba(15, 23, 42, 1),
+        0 0 0 1px rgba(191, 219, 254, 0.05);
+}
+
+.custom-card:hover .custom-card-image-frame img {
+    transform: scale(1.06);
+}
+
+.custom-card:hover {
+    transform: translateY(-6px) scale(1.01);
+}
+
+/* موبايل */
+@media (max-width: 768px) {
+    .custom-section {
+        padding: 32px 0 28px;
+    }
+
+    .custom-card-inner {
+        padding: 9px 10px;
+        gap: 8px;
+    }
+
+    .custom-card-right {
+        flex: 0 0 80px;
+    }
+
+    .custom-card-image-frame {
+        width: 78px;
+        height: 78px;
+    }
+}

@@ -1,0 +1,325 @@
+/* ===== قسم قبل/بعد – كروت مستقلة + لايت بوكس ===== */
+
+/* الوضع النهاري */
+:root[data-theme="light"] .pillar-points li {
+    color: #000;   /* النص بالأسود */
+}
+
+
+/* الوضع الليلي */
+:root[data-theme="dark"] .pillar-points li {
+    color: #fff;   /* النص أبيض */
+}
+
+
+.ba-section {
+  padding: 80px 0;
+  background: var(--bg-alt);
+  position: relative;
+  overflow: hidden;
+}
+
+.ba-header {
+  position: relative;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 36px;
+  color: var(--text);
+  z-index: 1;
+}
+
+.ba-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border: 1px solid rgba(214, 180, 108, 0.5);
+  color: var(--gold, #d6b46c);
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(12px);
+}
+
+.ba-title {
+  margin: 16px 0 10px;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--gold, #d6b46c);
+
+}
+
+.ba-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  line-height: 1.9;
+}
+
+/* شبكة الكروت */
+.ba-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* الكرت الواحد */
+.ba-card {
+  background: var(--bg-elevated);
+  border-radius: 24px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.32);
+  overflow: hidden;
+  padding: 14px 14px 18px;
+  color: var(--text);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.ba-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold, #d6b46c);
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.55);
+}
+
+/* صورة المشروع */
+.ba-image-wrap {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #020617;
+  cursor: zoom-in;
+}
+
+.ba-image-wrap img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.ba-card:hover .ba-image-wrap img {
+  transform: scale(1.04);
+}
+
+.ba-state-indicator {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 2px;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(248, 250, 252, 0.9);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.ba-state-pill-seg {
+  font-size: 11px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  color: #cbd5f5;
+  opacity: 0.7;
+  transition: background 0.25s ease, color 0.25s ease, opacity 0.25s ease, transform 0.2s ease;
+}
+
+.ba-state-pill-seg.is-active {
+  background: var(--gold, #d6b46c);
+  color: #0f172a;
+  opacity: 1;
+  transform: translateY(-0.5px);
+}
+
+/* زر التبديل ⇆ */
+.ba-switch {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,0.75);
+  background: rgba(15,23,42,0.95);
+  color: #e5e7eb;
+  font-size: 17px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
+}
+
+.ba-switch:hover {
+  background: var(--gold, #d6b46c);
+  border-color: var(--gold, #d6b46c);
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+
+/* النص داخل الكرت */
+.ba-content {
+  margin-top: 10px;
+}
+
+.ba-project-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.ba-project-text {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+/* ملاحظة أسفل القسم */
+.ba-note {
+  margin-top: 18px;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--text-light);
+}
+
+/* لايت بوكس */
+.ba-lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.ba-lightbox[hidden] {
+  display: none;
+}
+
+.ba-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15,23,42,0.9);
+}
+
+.ba-lightbox-inner {
+  position: absolute;
+  inset: 40px 16px;
+  max-width: 920px;
+  margin: auto;
+  background: var(--bg-elevated);
+  border-radius: 24px;
+  padding: 16px 16px 20px;
+  box-shadow: 0 32px 100px rgba(0,0,0,0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ba-lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.ba-lightbox-media {
+  position: relative;
+  width: 100%;
+  max-width: 820px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #020617;
+}
+
+.ba-lightbox-media img {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+  background: #000;
+}
+
+/* مؤشر قبل/بعد داخل اللايت بوكس */
+.ba-state-indicator-lg {
+  top: 14px;
+  left: 14px;
+}
+
+/* أسهم اللايت بوكس */
+.ba-lb-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,0.8);
+  background: rgba(15,23,42,0.95);
+  color: #e5e7eb;
+  font-size: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.ba-lb-arrow-left {
+  left: 12px;
+}
+
+.ba-lb-arrow-right {
+  right: 12px;
+}
+
+.ba-lb-arrow:hover {
+  background: var(--gold, #d6b46c);
+  border-color: var(--gold, #d6b46c);
+  color: #0f172a;
+  transform: translateY(-50%) translateY(-1px);
+}
+
+/* وصف أسفل اللايت بوكس */
+.ba-lightbox-caption {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  text-align: center;
+}
+
+/* استجابة للجوال */
+@media (max-width: 768px) {
+  .ba-section {
+    padding: 60px 0 70px;
+  }
+
+  .ba-title {
+    font-size: 1.6rem;
+  }
+
+  .ba-image-wrap img {
+    height: 210px;
+  }
+
+  .ba-lightbox-inner {
+    inset: 30px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ba-card {
+    padding: 10px 10px 14px;
+  }
+
+  .ba-image-wrap img {
+    height: 190px;
+  }
+}

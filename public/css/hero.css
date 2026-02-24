@@ -1,0 +1,202 @@
+/* ===================================
+   لوحة ألوان عامة للهدايا
+   =================================== */
+
+:root {
+    --accent-red:   #ef4444;
+    --accent-pink:  #ec4899;
+    --accent-gold:  #eab308;
+    --accent-green: #22c55e;
+    --accent-blue:  #3b82f6;
+    --accent-navy:  #0f172a;
+}
+/* ألوان خاصة بالهيرو (نضبطها عن طريق الكلاسات) */
+.hero.services-hero-slider {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 0 70px;
+    overflow: hidden;
+
+    /* قيم افتراضية */
+    --hero-accent: var(--accent-red);
+    --hero-accent-soft: rgba(239, 68, 68, 0.38);
+}
+
+/* نسخ ألوان حسب نوع الهيرو (تقدر تغيّر الكلاس في الـ PHP) */
+.hero.services-hero-slider.hero--red {
+    --hero-accent: var(--accent-red);
+    --hero-accent-soft: rgba(239, 68, 68, 0.38);
+}
+
+.hero.services-hero-slider.hero--pink {
+    --hero-accent: var(--accent-pink);
+    --hero-accent-soft: rgba(236, 72, 153, 0.35);
+}
+
+.hero.services-hero-slider.hero--gold {
+    --hero-accent: var(--accent-gold);
+    --hero-accent-soft: rgba(234, 179, 8, 0.35);
+}
+
+.hero.services-hero-slider.hero--green {
+    --hero-accent: var(--accent-green);
+    --hero-accent-soft: rgba(34, 197, 94, 0.32);
+}
+
+.hero.services-hero-slider.hero--blue {
+    --hero-accent: var(--accent-blue);
+    --hero-accent-soft: rgba(59, 130, 246, 0.32);
+}
+
+/* خلفيات السلايدر */
+.hero.services-hero-slider .hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.hero.services-hero-slider .hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: saturate(1.05);
+    opacity: 0;
+    transform: scale(1.05);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.hero.services-hero-slider .hero-slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* التدرج */
+.hero.services-hero-slider .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to top, rgba(0,0,0,0.83), rgba(0,0,0,0.18)),
+        radial-gradient(circle at top, rgba(0,0,0,0.4), transparent);
+    z-index: 1;
+}
+
+/* المحتوى داخل الهيرو */
+.hero.services-hero-slider .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 18px;
+    color: #f9fafb;
+
+    direction: rtl;
+    text-align: right;
+
+    animation: fadeInUp 0.6s ease 0.1s backwards;
+}
+
+/* الأنيميشن + الألوان */
+.hero.services-hero-slider .hero-kicker {
+    font-size: 11px;
+    color: var(--hero-accent);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    animation: fadeInDown 0.6s ease;
+}
+
+.hero.services-hero-slider .hero-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #f9fafb;
+    animation: fadeInUp 0.6s ease 0.1s backwards;
+}
+
+.hero.services-hero-slider .hero-title span {
+    color: var(--hero-accent);
+}
+
+.hero.services-hero-slider .hero-subtitle {
+    font-size: 14px;
+    color: rgba(249,250,251,0.9);
+    max-width: 640px;
+    margin-bottom: 18px;
+    animation: fadeInUp 0.6s ease 0.2s backwards;
+}
+
+.hero.services-hero-slider .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+    animation: fadeInUp 0.6s ease 0.3s backwards;
+}
+
+.hero.services-hero-slider .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 9px;
+    color: var(--hero-accent);
+    animation: fadeInUp 0.6s ease 0.4s backwards;
+}
+
+.hero.services-hero-slider .hero-badges span {
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--hero-accent-soft);
+    background: rgba(5, 8, 16, 0.9);
+    backdrop-filter: blur(4px);
+}
+
+/* أزرار الهيرو (يمكن دمجها لاحقاً مع ستايل عام للأزرار) */
+.hero.services-hero-slider .btn-primary,
+.hero.services-hero-slider .btn-outline {
+    font-size: 13px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    cursor: pointer;
+    border: none;
+    transition: 0.25s ease;
+}
+
+.hero.services-hero-slider .btn-primary {
+    background: var(--hero-accent);
+    color: #fff;
+}
+
+.hero.services-hero-slider .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    filter: brightness(1.05);
+}
+
+.hero.services-hero-slider .btn-outline {
+    background: transparent;
+    color: #f9fafb;
+    border: 1px solid var(--hero-accent-soft);
+    backdrop-filter: blur(4px);
+}
+
+.hero.services-hero-slider .btn-outline:hover {
+    background: rgba(0,0,0,0.6);
+}
+
+/* موبايل */
+@media (max-width: 768px) {
+    .hero.services-hero-slider {
+        min-height: 78vh;
+        padding-bottom: 40px;
+    }
+    .hero.services-hero-slider .hero-title {
+        font-size: 22px;
+    }
+    .hero.services-hero-slider .hero-subtitle {
+        font-size: 12px;
+    }
+}

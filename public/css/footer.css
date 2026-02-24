@@ -1,0 +1,386 @@
+/* =========================================================
+   Footer - من أجلك للهدايا
+   يعتمد على المتغيرات العامة في base.css:
+   --bg, --bg-alt, --bg-elevated, --text, --text-soft, --gold,
+   --border-soft, --shadow-soft
+   ========================================================= */
+
+/* ===================== إعداد الفوتر ===================== */
+
+.site-footer {
+  --footer-bg:
+    radial-gradient(circle at top left, rgba(232, 106, 140, 0.08), transparent),
+    radial-gradient(circle at top right, rgba(244, 114, 182, 0.08), transparent),
+    linear-gradient(to bottom, var(--bg-elevated), var(--bg));
+  --footer-text: var(--text);
+  --footer-link: var(--text-soft);
+  --footer-link-hover: var(--gold);
+
+  position: relative;
+  padding: 3.5rem 0 1.5rem;
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  font-family: var(--font-main, "Tajawal", system-ui, -apple-system, BlinkMacSystemFont, sans-serif);
+  overflow: hidden;
+  border-top: 1px solid var(--border-soft);
+  color-scheme: light;
+  isolation: isolate;
+}
+
+/* خط علوي */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset-inline: 6%;
+  top: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to left,
+    transparent,
+    rgba(232, 106, 140, 0.95),
+    transparent
+  );
+  opacity: 0.9;
+}
+
+/* ===================== الوضع الداكن ===================== */
+
+html[data-theme="dark"] .site-footer {
+  --footer-bg:
+    radial-gradient(circle at top left, rgba(232, 106, 140, 0.12), transparent),
+    radial-gradient(circle at top right, rgba(15, 23, 42, 0.2), transparent),
+    linear-gradient(to bottom, #05070a, #0b0f16);
+  --footer-text: #e5e7eb;
+  --footer-link: rgba(243, 244, 246, 0.9);
+  --footer-link-hover: var(--gold);
+  color-scheme: dark;
+  border-top-color: rgba(148, 163, 253, 0.18);
+}
+
+html[data-theme="light"] .site-footer {
+  --footer-bg:
+    radial-gradient(circle at top left, rgba(232, 106, 140, 0.08), transparent),
+    radial-gradient(circle at top right, rgba(244, 114, 182, 0.08), transparent),
+    linear-gradient(to bottom, var(--bg-elevated), var(--bg));
+  --footer-text: var(--text);
+  --footer-link: var(--text-soft);
+  --footer-link-hover: var(--gold);
+  color-scheme: light;
+  border-top-color: var(--border-soft);
+}
+
+/* ===================== الروابط ===================== */
+
+.site-footer a {
+  color: var(--footer-link);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.site-footer a:hover {
+  color: var(--footer-link-hover);
+  transform: translateX(-2px);
+}
+
+.site-footer p {
+  font-size: 0.9rem;
+  color: rgba(107, 114, 128, 0.96);
+  margin-bottom: 0.7rem;
+}
+
+html[data-theme="dark"] .site-footer p {
+  color: rgba(209, 213, 219, 0.9);
+}
+
+/* ===================== عناوين الأعمدة ===================== */
+
+.footer-title {
+  font-family: var(--font-heading, "Tajawal", sans-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+  position: relative;
+  padding-bottom: 6px;
+}
+
+html[data-theme="dark"] .footer-title {
+  color: #f9fafb;
+}
+
+.footer-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 2px;
+  border-radius: 999px;
+  background-color: var(--gold);
+}
+
+/* ===================== قائمة الروابط ===================== */
+
+.site-footer .list-unstyled {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-footer .list-unstyled li {
+  margin-bottom: 0.45rem;
+}
+
+.site-footer .list-unstyled a {
+  position: relative;
+  padding-right: 16px;
+  display: inline-block;
+}
+
+.site-footer .list-unstyled a::before {
+  content: "•";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold);
+  font-size: 0.7rem;
+  opacity: 0.9;
+  transition: all 0.18s ease;
+}
+
+.site-footer .list-unstyled a:hover::before {
+  transform: translateY(-50%) translateX(-2px);
+}
+
+/* ===================== هوية المتجر ===================== */
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.before-after-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  margin-bottom: 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(232, 106, 140, 0.35);
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--gold);
+  font-size: 0.7rem;
+}
+
+.footer-brand-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.4px;
+}
+
+.footer-brand-sub {
+  font-size: 0.8rem;
+  color: rgba(75, 85, 99, 0.96);
+}
+
+.footer-note {
+  font-size: 0.78rem;
+  color: rgba(148, 163, 253, 0.8);
+}
+
+html[data-theme="dark"] .before-after-label {
+  background: rgba(2, 6, 23, 0.92);
+  color: var(--gold);
+}
+
+html[data-theme="dark"] .footer-brand-sub,
+html[data-theme="dark"] .footer-note {
+  color: rgba(234, 235, 240, 0.8);
+}
+
+/* ===================== أيقونات التواصل ===================== */
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.social-icons a {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold);
+  border: 1px solid rgba(148, 163, 253, 0.12);
+  font-size: 0.9rem;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.35);
+  transition: all 0.2s ease;
+}
+
+.social-icons a:hover {
+  background: #c03963;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(192, 57, 99, 0.5);
+}
+
+/* ===================== بيانات التواصل ===================== */
+
+.footer-contact i {
+  color: var(--gold);
+  margin-left: 6px;
+  font-size: 0.9rem;
+}
+
+/* ===================== ذيل الفوتر ===================== */
+
+.footer-bottom {
+  margin-top: 26px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(148, 163, 253, 0.16);
+  font-size: 0.8rem;
+  color: rgba(75, 85, 99, 0.98);
+  text-align: center;
+}
+
+html[data-theme="dark"] .footer-bottom {
+  color: rgba(156, 163, 175, 0.9);
+  border-top-color: rgba(148, 163, 253, 0.08);
+}
+
+.footer-bottom a {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+/* ===================== الأزرار العائمة ===================== */
+
+.floating-buttons {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.floating-buttons a {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.25);
+}
+
+/* واتساب */
+.floating-buttons .whatsapp {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+}
+
+.floating-buttons .whatsapp:hover {
+  background: var(--gold);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(192, 57, 99, 0.4);
+}
+
+/* أيقونة الهدايا */
+.floating-buttons .gift-icon {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+}
+
+.floating-buttons .gift-icon:hover {
+  background: var(--gold);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(192, 57, 99, 0.45);
+}
+
+/* سناب */
+.floating-buttons .snapchat {
+  background: #FFFC00;
+  color: #000;
+  border: 1px solid #e4d900;
+}
+
+/* إنستغرام */
+.floating-buttons .instagram {
+  background: radial-gradient(circle at 30% 30%, #fdf497 0%, #fd5949 40%, #d6249f 70%, #285AEB 100%);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #ffffff;
+}
+
+.floating-buttons .instagram:hover {
+  transform: translateY(-3px);
+  opacity: 0.95;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+}
+
+/* زر العودة للأعلى */
+.floating-buttons .top-btn {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  opacity: 0;
+  transform: translateY(10px);
+  font-size: 1rem;
+}
+
+/* Hover عام */
+.floating-buttons a:hover {
+  transform: translateY(-3px);
+  opacity: 0.98;
+}
+
+/* ===================== تجاوب ===================== */
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 2.2rem 0 1.2rem;
+  }
+
+  .footer-title {
+    font-size: 1.05rem;
+  }
+
+  .footer-brand-title {
+    font-size: 1.12rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.76rem;
+    margin-top: 18px;
+  }
+
+  .floating-buttons {
+    left: 12px;
+    bottom: 12px;
+    gap: 8px;
+  }
+
+  .floating-buttons a {
+    width: 46px;
+    height: 46px;
+    font-size: 1.05rem;
+  }
+}

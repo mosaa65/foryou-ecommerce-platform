@@ -1,0 +1,115 @@
+/* سكشن اختَر المناسبة – بسيط وفخم ومتناسق مع base.css */
+
+.occasion-section {
+  background: var(--page-bg);
+}
+
+/* نجعل الكروت في هذا السكشن أقل padding لأن الصورة فوق */
+.occasion-grid .card-occasion {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* الصورة */
+.occasion-card-image {
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  overflow: hidden;
+}
+
+.occasion-card-image img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+
+/* المحتوى */
+.occasion-card-content {
+  padding: 12px 14px 14px;
+}
+
+/* الشارة */
+.occasion-pill {
+  margin-bottom: 6px;
+}
+
+/* العنوان */
+.occasion-card-title {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+/* الوصف */
+.occasion-card-description {
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  color: var(--text-soft);
+}
+
+/* الرابط النصي */
+.occasion-card-cta {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-occasion);
+}
+
+/* هوفر */
+.card-occasion:hover .occasion-card-image img {
+  transform: scale(1.05);
+}
+
+/* reveal العامة موجودة في base.css:
+   .reveal { opacity:0; transform:translateY(20px); ... }
+   .reveal.visible { opacity:1; transform:translateY(0); }
+   تأكد أن عندك سكربت بسيط يضيف .visible عند ظهور الكرت في الشاشة.
+*/
+
+/* موبايل */
+@media (max-width: 768px) {
+  /* فقط أضفنا هذين الحكمين دون تغيير أي شيء آخر */
+  .occasion-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  
+  .occasion-card-image img {
+    height: 130px;
+  }
+
+  .occasion-card-content {
+    padding: 10px 12px 12px;
+  }
+}
+
+/* موبايل صغير جداً */
+@media (max-width: 480px) {
+  /* تصغير إضافي للشاشات الصغيرة جداً */
+  .occasion-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .occasion-card-image img {
+    height: 110px;
+  }
+  
+  .occasion-card-content {
+    padding: 8px 10px 10px;
+  }
+  
+  .occasion-card-title {
+    font-size: 0.9rem;
+  }
+  
+  .occasion-card-description {
+    font-size: 0.8rem;
+  }
+  
+  .occasion-card-cta {
+    font-size: 0.75rem;
+  }
+}

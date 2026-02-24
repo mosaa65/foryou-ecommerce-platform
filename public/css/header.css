@@ -1,0 +1,252 @@
+/* =====================================
+   الهيدر الثابت الشفاف + وضع ليلي
+===================================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 249, 251, 0.86); /* منسجم مع خلفية الهدايا */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: var(--shadow-soft);
+  transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.3s ease;
+}
+
+html[data-theme="dark"] .site-header {
+  background: rgba(15, 17, 21, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* =====================================
+   المحتوى الداخلي للهيدر
+===================================== */
+.header-inner {
+  width: min(var(--max-width), 100%);
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* الشعار */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(232, 106, 140, 0.25);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.logo-text-main {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+}
+
+.logo-text-sub {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-soft);
+  margin-top: 2px;
+}
+
+/* روابط سطح المكتب */
+.nav-desktop {
+  margin-inline-start: auto;
+}
+
+.nav-desktop ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+}
+
+.nav-desktop a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-soft);
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: all var(--transition);
+}
+
+.nav-desktop a:hover {
+  color: var(--gold);
+  background: var(--gold-soft);
+  transform: translateY(-1px);
+}
+
+/* =====================================
+   أزرار الهيدر (الثيم + قائمة الموبايل)
+===================================== */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-toggle-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid var(--border-soft);
+  background: var(--bg-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.theme-toggle-btn:hover {
+  background: var(--gold-soft);
+  transform: translateY(-1px);
+}
+
+/* زر القائمة للموبايل */
+.menu-toggle {
+  display: none;
+  width: 38px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-soft);
+  background: var(--bg-elevated);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.menu-toggle span {
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--text);
+  transition: all var(--transition);
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(4px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+/* =====================================
+   قائمة الموبايل
+===================================== */
+/* انتبه: أزلنا هنا أي :root جديد */
+/* الحاوية */
+.nav-mobile {
+  position: fixed;
+  top: var(--header-height);
+  right: 8px;
+  left: 8px;
+  margin: 0;
+  max-width: calc(100% - 16px);
+  background: rgba(255, 249, 251, 0.96);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(232, 106, 140, 0.18);
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.16);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  z-index: 1100;
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.35s cubic-bezier(.22,.9,.29,1),
+    opacity 0.28s ease,
+    box-shadow 0.2s;
+  overflow: hidden;
+}
+
+/* وضع داكن لقائمة الموبايل */
+html[data-theme="dark"] .nav-mobile {
+  background: rgba(18, 18, 18, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* عناصر القائمة */
+.nav-mobile ul {
+  list-style: none;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-mobile a {
+  display: block;
+  padding: 10px 12px;
+  color: var(--text-soft);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: all 0.25s ease;
+}
+
+.nav-mobile a:hover {
+  background: var(--gold-soft);
+  color: var(--gold);
+  transform: translateX(3px);
+}
+
+/* حالة الظهور */
+.nav-mobile.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* =====================================
+   استجابة الشاشات الصغيرة
+===================================== */
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .header-inner {
+    padding: 10px 14px;
+  }
+}

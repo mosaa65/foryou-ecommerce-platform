@@ -1,0 +1,321 @@
+/* =========================================================
+   🔰 الملف الأساسي لتصميم الموقع - Base Styles (For You Gifts)
+   ========================================================= */
+:root {
+  --bg: #fff9fb;
+  --bg-alt: #ffeef6;
+  --bg-elevated: #ffffff;
+
+  --text: #2b1520;
+  --text-soft: #7f5b6c;
+  --text-light: #c79fb2;
+
+  --gold: #e86a8c;
+  --gold-soft: rgba(232, 106, 140, 0.16);
+
+  --border-soft: rgba(232, 106, 140, 0.14);
+  --shadow-soft: 0 8px 24px rgba(232, 106, 140, 0.10);
+  --shadow-hover: 0 14px 40px rgba(232, 106, 140, 0.18);
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-xl: 20px;
+  --transition: 0.3s ease;
+  --max-width: 1120px;
+
+  --font-main: "Tajawal", system-ui, -apple-system, sans-serif;
+  --font-heading: "Tajawal", sans-serif;
+}
+
+
+[data-theme="dark"] {
+  --bg: #0f1115;
+  --bg-alt: #181b20;
+  --bg-elevated: #1e2127;
+
+  --text: #e5e7eb;
+  --text-soft: #9ca3af;
+  --text-light: #6b7280;
+
+  --border-soft: rgba(255, 255, 255, 0.10);
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 14px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* ... الخ كما عندك */
+
+/* =========================================================
+   🔹 القواعد الأساسية (Reset + Typographic)
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden !important;
+}
+
+img,
+section,
+div {
+  max-width: 100% !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+  line-height: 1.9;
+  overflow-x: hidden;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* الروابط والصور */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition), background-color var(--transition);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+/* Lazy Loading للصور */
+img:not([src]) {
+  visibility: hidden;
+}
+
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"].loaded,
+img[loading="lazy"][src] {
+  opacity: 1;
+}
+
+/* تحسين تحميل الخطوط */
+body:not(.fonts-loaded) {
+  /* fallback font أثناء تحميل الخط */
+}
+
+body.fonts-loaded {
+  /* الخط الأصلي تم تحميله */
+}
+
+/* =========================================================
+   🔹 نظام النصوص (Typography)
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+p {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* النصوص داخل الأقسام */
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 8px;
+  color: rgba(232, 106, 140, 0.85);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  max-width: 650px;
+  margin: 0 auto 30px;
+}
+
+/* =========================================================
+   🔹 هيكل الصفحة والأقسام
+   ========================================================= */
+
+main {
+  display: block;
+  width: 100%;
+  padding-top: 90px;
+  /* للهيدر الثابت */
+}
+
+section {
+  padding: 70px 0;
+  position: relative;
+  background: transparent;
+}
+
+.section-wrapper {
+  width: min(var(--max-width), 92%);
+  margin-inline: auto;
+}
+
+/* =========================================================
+   🔹 الأزرار العامة
+   ========================================================= */
+
+.btn-primary,
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition);
+  gap: 6px;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(232, 106, 140, 0.30);
+}
+
+.btn-primary:hover {
+  background: #d55279;
+  box-shadow: 0 10px 30px rgba(232, 106, 140, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.btn-outline:hover {
+  background: var(--gold);
+  color: #fff;
+}
+
+/* =========================================================
+   🔹 الكروت والعناصر المتكررة
+   ========================================================= */
+
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.pill {
+  display: inline-block;
+  background: var(--gold-soft);
+  color: var(--gold);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   🔹 الشبكات العامة + الأنيميشن
+   ========================================================= */
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   🔹 تحسين الاستجابة
+   ========================================================= */
+@media (max-width: 768px) {
+  main {
+    padding-top: 80px;
+  }
+
+  section {
+    padding: 50px 0;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+}

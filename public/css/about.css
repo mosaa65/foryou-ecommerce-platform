@@ -1,0 +1,554 @@
+/* =========================================================
+   🏢 تصميم صفحة من نحن - About Page
+   ========================================================= */
+
+/* Hero Section */
+.about-hero {
+    padding: 100px 0 60px;
+    background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(214, 180, 108, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: floatingOrb 20s ease-in-out infinite;
+}
+
+.about-hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-hero .hero-badge {
+    display: inline-block;
+    background: var(--gold-soft);
+    color: var(--gold);
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border: 1px solid rgba(214, 180, 108, 0.2);
+    animation: fadeInDown 0.6s ease;
+}
+
+.about-hero .hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 16px;
+    animation: fadeInUp 0.6s ease 0.1s backwards;
+}
+
+.about-hero .hero-description {
+    font-size: 1.1rem;
+    color: var(--text-soft);
+    line-height: 1.8;
+    animation: fadeInUp 0.6s ease 0.2s backwards;
+}
+
+/* Intro Section */
+.about-intro {
+    padding: 80px 0;
+    background: var(--bg);
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.intro-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.intro-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.intro-text {
+    font-size: 1.05rem;
+    color: var(--text-soft);
+    line-height: 1.8;
+}
+
+.intro-text strong {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.intro-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-soft);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    font-weight: 500;
+}
+
+.intro-image {
+    position: relative;
+}
+
+.image-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--bg-elevated);
+    border: 2px dashed var(--border-soft);
+    border-radius: var(--radius-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+.image-placeholder svg {
+    opacity: 0.3;
+}
+
+.image-placeholder:hover {
+    border-color: var(--gold);
+    background: var(--gold-soft);
+}
+
+/* Values Section */
+.about-values {
+    padding: 80px 0;
+    background: var(--bg-alt);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.value-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-soft);
+}
+
+.value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--gold);
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: var(--gold-soft);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    transition: all 0.3s ease;
+}
+
+.value-card:hover .value-icon {
+    background: var(--gold);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.value-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.value-description {
+    font-size: 0.95rem;
+    color: var(--text-soft);
+    line-height: 1.7;
+}
+
+.value-description strong {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+/* Why Us Section */
+.about-why {
+    padding: 80px 0;
+    background: var(--bg);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-item {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-xl);
+    padding: 28px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-soft);
+}
+
+.feature-item:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--gold);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gold-soft);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover .feature-icon {
+    background: var(--gold);
+    color: #fff;
+    transform: scale(1.1) rotate(5deg);
+}
+
+.feature-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.feature-text {
+    font-size: 0.95rem;
+    color: var(--text-soft);
+    line-height: 1.7;
+}
+
+/* Clients Section */
+.clients-section {
+    padding: 80px 0;
+    background: var(--bg-alt);
+}
+
+.clients-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.client-logo {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-xl);
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-soft);
+    min-height: 180px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.client-logo:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--gold);
+    background: var(--gold-soft);
+}
+
+/* صورة الشعار */
+.client-logo-img {
+    max-width: 100%;
+    max-height: 120px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.client-logo:hover .client-logo-img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.logo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+    color: var(--text-soft);
+    transition: all 0.3s ease;
+}
+
+.logo-placeholder svg {
+    opacity: 0.4;
+    transition: all 0.3s ease;
+}
+
+.client-logo:hover .logo-placeholder {
+    color: var(--gold);
+}
+
+.client-logo:hover .logo-placeholder svg {
+    opacity: 1;
+    color: var(--gold);
+    transform: scale(1.1);
+}
+
+.logo-placeholder span {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* =========================================================
+   📱 التصميم المتجاوب
+   ========================================================= */
+
+@media (max-width: 1024px) {
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .intro-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .clients-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        padding: 80px 0 50px;
+    }
+
+    .about-hero .hero-title {
+        font-size: 2rem;
+    }
+
+    .about-hero .hero-description {
+        font-size: 1rem;
+    }
+
+    .about-intro,
+    .about-values,
+    .about-why,
+    .clients-section {
+        padding: 60px 0;
+    }
+
+    .intro-title {
+        font-size: 1.6rem;
+    }
+
+    .intro-stats {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .values-grid,
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .client-logo {
+        min-height: 150px;
+        padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero {
+        padding: 60px 0 40px;
+    }
+
+    .about-hero .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .about-hero .hero-badge {
+        font-size: 12px;
+        padding: 6px 16px;
+    }
+
+    .intro-title {
+        font-size: 1.4rem;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+    }
+
+    .value-card,
+    .feature-item {
+        padding: 24px;
+    }
+
+    .value-icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    .value-icon svg,
+    .feature-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .clients-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .client-logo {
+        min-height: 140px;
+    }
+}
+
+/* =========================================================
+   🎬 الأنيميشن
+   ========================================================= */
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) translateZ(0);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateZ(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) translateZ(0);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateZ(0);
+    }
+}
+
+@keyframes floatingOrb {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+    50% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+    75% {
+        transform: translate(20px, 30px) scale(1.05);
+    }
+}
+
+/* =========================================================
+   ⚡ تحسينات الأداء
+   ========================================================= */
+
+.value-card,
+.feature-item,
+.client-logo {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* تحسين الخطوط */
+.intro-title,
+.value-title,
+.feature-title {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+

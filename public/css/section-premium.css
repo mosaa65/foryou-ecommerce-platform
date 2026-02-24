@@ -1,0 +1,301 @@
+/* سكشن الهدايا الفاخرة – تصميم VIP */
+
+.premium-section {
+    padding: 44px 0 38px;
+    background: var(--page-bg);
+    direction: rtl;
+    text-align: right;
+}
+/* وهج ذهبي خفيف في الخلف */
+.premium-section::before {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(250, 204, 21, 0.35), transparent);
+    top: -120px;
+    left: 10%;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.premium-section::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(15, 23, 42, 0.9), transparent);
+    bottom: -120px;
+    right: 5%;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.premium-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 18px;
+}
+
+/* عنوان */
+.premium-header {
+    margin-bottom: 20px;
+}
+
+/* ===== تحسين العنوان والنص ===== */
+.premium-title {
+    font-size: 32px; /* أكبر قليلاً للتميز */
+    font-weight: 800;
+    margin: 0 0 8px;
+    background: linear-gradient(90deg, #facc15, #fcd34d, #60a5fa); /* تدرج ذهبي إلى أزرق */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #fefce8; /* fallback للمتصفحات التي لا تدعم التدرج */
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3); /* ظل خفيف لإبراز النص */
+}
+
+.premium-subtitle {
+    align-items: center;
+    color: rgba(226, 232, 240, 0.9);
+    max-width: 540px;
+    line-height: 1.5;
+    background: linear-gradient(90deg, rgba(250, 204, 21, 0.8), rgba(59, 130, 246, 0.8));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+
+
+/* Grid للكروت */
+.premium-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+/* الكرت ذاته */
+.premium-card {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+
+    transform-origin: center;
+    transform: translateY(18px) scale(0.98);
+    opacity: 0;
+    transition:
+        transform 0.32s ease,
+        opacity 0.32s ease,
+        box-shadow 0.32s ease;
+}
+
+/* عند الظهور من الـ JS */
+.premium-card.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* وهج خلف الكرت */
+.premium-card-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at 10% 0, rgba(250, 204, 21, 0.28), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(30, 64, 175, 0.7), var(--section-bg));
+    opacity: 0.9;
+    z-index: 0;
+    box-shadow: var(--shadow-soft);
+}
+
+/* المحتوى الداخلي للكرت */
+.premium-card-inner {
+    position: relative;
+    z-index: 1;
+    padding: 12px 14px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+}
+
+/* الجزء الأيسر (النص) */
+.premium-card-left {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* شارة صغيرة */
+.premium-card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(250, 204, 21, 0.7);
+    color: #fefce8;
+    margin-bottom: 6px;
+}
+
+.premium-card-badge-icon {
+    font-size: 11px;
+}
+
+.premium-card-badge-text {
+    letter-spacing: 0.5px;
+}
+
+/* عنوان الكرت */
+.premium-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: #fefce8;
+}
+
+/* نص الكرت */
+.premium-card-text {
+    font-size: 11px;
+    margin: 0 0 6px;
+    color: rgba(226, 232, 240, 0.92);
+}
+
+/* فوتر الكرت */
+.premium-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2px;
+}
+
+.premium-card-cta {
+    font-size: 11px;
+    font-weight: 500;
+    color: #fde68a;
+}
+
+.premium-card-line {
+    flex: 0 0 40px;
+    height: 1px;
+    border-radius: 999px;
+    background: linear-gradient(to left, #facc15, transparent);
+}
+
+/* الجزء الأيمن (الصورة) */
+.premium-card-right {
+    flex: 0 0 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.premium-card-image-frame {
+    width: 86px;
+    height: 86px;
+    border-radius: 18px;
+    border: 1px solid rgba(251, 191, 36, 0.6);
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.9);
+    overflow: hidden;
+    background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617);
+}
+
+.premium-card-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+/* هوفر */
+.premium-card:hover .premium-card-inner {
+    border-color: rgba(250, 204, 21, 0.9);
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, 1),
+        0 0 0 1px rgba(250, 250, 250, 0.05);
+}
+
+.premium-card:hover .premium-card-image-frame img {
+    transform: scale(1.06);
+}
+
+.premium-card:hover {
+    transform: translateY(-6px) scale(1.01);
+}
+
+/* موبايل */
+@media (max-width: 768px) {
+    .premium-section {
+        padding: 32px 0 28px;
+    }
+
+    /* عرض بطاقتين في الصف على الجوال */
+    .premium-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .premium-card-inner {
+        padding: 10px 10px 10px;
+        gap: 8px;
+        flex-direction: column;
+    }
+
+    .premium-card-right {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .premium-card-image-frame {
+        width: 100%;
+        height: 120px;
+    }
+
+    .premium-card-left {
+        min-height: 110px;
+    }
+}
+
+/* شاشات صغيرة جداً */
+@media (max-width: 480px) {
+    .premium-grid {
+        grid-template-columns: repeat(2, 1fr); /* بطاقتين في الصف للتابلت */
+    }
+
+    .premium-section {
+        padding: 28px 0 24px;
+    }
+
+    .premium-inner {
+        padding: 0 12px;
+    }
+
+
+
+    .premium-card-inner {
+        padding: 12px;
+    }
+
+    .premium-card-image-frame {
+        height: 140px;
+    }
+}
+
+/* شاشات متوسطة (تابلت) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .premium-grid {
+        grid-template-columns: repeat(2, 1fr); /* بطاقتين في الصف للتابلت */
+    }
+    
+    .premium-inner {
+        padding: 0 24px;
+    } 
+}   
