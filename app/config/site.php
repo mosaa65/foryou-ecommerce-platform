@@ -12,7 +12,13 @@
 // 🌐 إعدادات الموقع
 // =========================================================
 
-define('SITE_URL', 'http://localhost/For You');  // غيّر لدومينك الفعلي
+// تحديد رابط الموقع ديناميكياً لتجنب مشاكل النشر
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https" : "http";
+$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$baseDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
+$baseDir = $baseDir === '/' ? '' : $baseDir;
+define('SITE_URL', $protocol . "://" . $host . $baseDir);
+
 define('SITE_NAME', 'من أجلك للهدايا');
 define('SITE_TAGLINE', 'هدايا فاخرة بتفاصيل خاصة');
 define('SITE_DESCRIPTION', 'من أجلك للهدايا: متجر هدايا فاخرة يقدم بوكسات مميزة وتغليف راقٍ لكل المناسبات.');
