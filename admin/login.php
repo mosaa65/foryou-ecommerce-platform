@@ -260,7 +260,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="login-container">
         <div class="login-logo">
-            <img src="../assets/favicon.png" alt="من أجلك">
+            <img src="../public/favicon.png" alt="من أجلك">
             <h1>لوحة التحكم</h1>
             <p>متجر من أجلك للهدايا</p>
         </div>

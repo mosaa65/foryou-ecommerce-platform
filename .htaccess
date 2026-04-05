@@ -5,9 +5,8 @@
 
 Options -Indexes
 RewriteEngine On
-RewriteBase /For%20You/
-# (If on localhost/For You/, RewriteBase might need adjustment. 
-# Usually simply RewriteBase / works if root, or auto-detection.)
+# اترك RewriteBase غير محدد حتى تعمل القواعد سواء كان المشروع
+# في جذر النطاق أو داخل مجلد فرعي محلي.
 
 # =========================================================
 # 1. 🔄 توجيه Assets القديمة إلى الهيكل الجديد (Public)
@@ -16,6 +15,10 @@ RewriteBase /For%20You/
 # تحويل assets/img -> public/images
 RewriteRule ^assets/img/(.*)$ public/images/$1 [L,NC,R=301]
 RewriteRule ^assets/images/(.*)$ public/images/$1 [L,NC,R=301]
+
+# دعم مسارات أصول الأدمن القديمة من داخل /admin
+RewriteRule ^admin/assets/css/(.*)$ public/css/$1 [L,NC]
+RewriteRule ^admin/assets/js/(.*)$ public/js/$1 [L,NC]
 
 # تحويل assets/css -> public/css
 RewriteRule ^assets/css/(.*)$ public/css/$1 [L,NC]

@@ -7,6 +7,8 @@ requireLogin();
 
 $currentAdmin = getCurrentAdmin();
 $currentPage = basename($_SERVER['PHP_SELF'], '.php');
+$adminCssPath = __DIR__ . '/../assets/css/admin.css';
+$adminCss = is_readable($adminCssPath) ? file_get_contents($adminCssPath) : '';
 ?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" data-theme="dark">
@@ -19,7 +21,11 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/admin.css">
+    <?php if ($adminCss !== ''): ?>
+        <style><?php echo $adminCss; ?></style>
+    <?php else: ?>
+        <link rel="stylesheet" href="../public/css/admin.css">
+    <?php endif; ?>
     
     <link rel="icon" type="image/png" href="../public/favicon.png">
 </head>
